@@ -1,23 +1,35 @@
-let draggable = document.querySelectorAll(".color");
+let red = document.querySelector("#red");
+let blue = document.querySelector("#blue");
+let yellow = document.querySelector("#yellow");
 
-draggable.addEventListener("dragstart", function(event) {
-    draggable = event.target;
-    console.log("Dragging")
-}, false);
+let first = document.querySelector("#first")
+let second = document.querySelector("#second")
+let result = document.querySelector("#result")
+
+let colors = document.querySelectorAll(".color")
 
 
-// for (let div of orangeDivs) {
-//     div.addEventListener("dragover", function(event) {
-//         event.preventDefault();
-//     }, false);
+for (var color of colors ) {
+    color.addEventListener("dragstart", function(event) {
+        color = event.target;
+        console.log(color)
+    }, false);
+}
 
-//     div.addEventListener('drop', function(event) {
-//         div.appendChild(draggable)
-//         if (div.id == "to") {
-//             console.log("changing color")
-//             draggable.style = "background-color:green;"
-//         }else {
-//             draggable.style = "background-color:red;"
-//         }
-//     })
-// }
+
+let colorDivs = document.querySelectorAll(".color-holder");
+
+for (let div of colorDivs) {
+    div.addEventListener("dragover", function(event) {
+        event.preventDefault();
+    }, false);
+
+    div.addEventListener('drop', function(event) {
+        if (div.id != "result"){
+            event.target.appendChild(color)
+        }
+    })
+}
+
+
+
